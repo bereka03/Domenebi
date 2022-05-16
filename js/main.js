@@ -242,7 +242,6 @@ function appearDomains(){
         div4.setAttribute('class', 'prices-wrapper');
         div3.append(div4);
     }
-    // document.querySelectorAll(".filtered-list-item").forEach(n => n.style.display = 'none');
 }
 appearDomains();
 let click_count = 1;
