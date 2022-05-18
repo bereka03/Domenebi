@@ -72,7 +72,6 @@ for (let each of domainList){
     list = document.createElement("li");
     list.setAttribute("id", `${each.domainName}`);
     list.setAttribute("class", "domain-item");
-    list.style.paddingLeft = "20px";
     list.style.cursor = "pointer";
     list.style.borderBottom = "solid 3px #F1F1F5"
     document.querySelector("#domains").append(list);
@@ -82,7 +81,6 @@ for (let each of domainList){
     div1.setAttribute("class", "domain-wrapper");
     document.querySelector(`#${each.domainName} .list-items-wrapper`).append(div1);
     domain.innerHTML = `${each.domainName}${each.domainExtension}`;
-    // domain.setAttribute('class', `${each.categories[0]}`);
     domain.classList.toggle(`${each.categories[1]}`);
 
 
@@ -114,34 +112,29 @@ for (let each of domainList){
     bucket.style.backgroundColor = "#99CC66"
     document.querySelector(`#${each.domainName} .rightside-wrapper .span-text`).append(bucket);
 }
-
+let domains_list = document.querySelectorAll(".domain-item");
 let count = 1;
 let buttonList = document.querySelectorAll(".span-text");
 // ლისტებზე ქლიქის დადება
 for(let each of document.querySelectorAll(".domain-item")){
     each.addEventListener('click', function myFunc() {
-        if(count === 1){
-            count++;
-            return each.firstChild.firstChild.firstChild.style.border = "solid 1px #99CC66",
-            each.style.backgroundColor = "#F5F5F8",
-            each.style.borderRadius = "15px",
-            each.lastChild.lastChild.lastChild.style.backgroundColor = "#99CC66",
-            each.firstChild.lastChild.lastChild.appendChild(span_text),
-            each.firstChild.lastChild.lastChild.style.paddingRight = '8px',
-            each.firstChild.lastChild.lastChild.classList.toggle(".selected");
-        }else if(each.firstChild.lastChild.lastChild.className === 'span-text .selected sold'){
+        if(each.firstChild.lastChild.lastChild.className === 'span-text'){
+            each.firstChild.firstChild.firstChild.style.border = "solid 1px #99CC66";
+            each.style.backgroundColor = "#F5F5F8";
+            each.style.borderRadius = "15px";
+            each.lastChild.lastChild.lastChild.style.backgroundColor = "#99CC66";
+            each.firstChild.lastChild.lastChild.classList.add("selected");
+            each.firstChild.lastChild.lastChild.appendChild(span_text);
+        }else if(each.firstChild.lastChild.lastChild.className === 'span-text selected sold'){
             each.removeEventListener('click', myFunc);
-            count = 1;
         }
-        else if(2){
-            count--;
-            return each.firstChild.firstChild.firstChild.style.border = "solid 1px transparent",
-            each.style.backgroundColor = "#FFFFFF",
-            each.firstChild.lastChild.lastChild.removeChild(span_text),
-            each.firstChild.lastChild.lastChild.style.paddingRight = '0px',
-            buttonList.forEach(n => n.classList.remove(".selected"));
+        else if(each.firstChild.lastChild.lastChild.className = ("span-text selected")){
+            each.firstChild.firstChild.firstChild.style.border = "solid 1px transparent";
+            each.style.backgroundColor = "#FFFFFF";
+            each.firstChild.lastChild.lastChild.classList.remove("selected");
+            each.firstChild.lastChild.lastChild.removeChild(span_text);
         }
-    })
+    });
 }
 
 // ბურგერ მენიუ
@@ -190,7 +183,6 @@ symbol_input[1].onchange = () => {
     slider4.value = symbol_input[1].value;
 }
 // ფილტრის ლოგიკა დასამთავრებელი
-let domains_list = document.querySelectorAll(".domain-item");
 let checkbox_arr = document.querySelectorAll(".categories-items li input");
 let domains_place = document.querySelector('.filtered-domains-wrapper');
 
@@ -287,7 +279,7 @@ let sold_count = document.getElementById("count");
 let count2 = 0;
 let buy = function(){
     buttonList.forEach( n => n.addEventListener('click', () => {
-        if(n.className === 'span-text .selected'){ 
+        if(n.className === 'span-text selected'){ 
          n.innerHTML = "<img src='./img/check.svg' alt='check icon'>"
          n.style.backgroundColor = "#F5F5F8";
          n.appendChild(text2);    

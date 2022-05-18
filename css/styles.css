@@ -352,12 +352,14 @@ input[type="checkbox"] {
 }
 #domains li {
     display: flex;
-    padding: 10px 10px 10px 0;
+    padding: 10px;
     width: 90%;
     margin: 0;
     margin-top: 20px;
 }
-
+.domain-item {
+    padding-left: 20px;
+}
 #domains li p, #domains li img {
     color: #171D25;
     font: normal normal bold 16px/22px TKT;
@@ -394,6 +396,9 @@ input[type="checkbox"] {
     border-radius: 10px;
     margin-left: 10px;
     transition: 0.2s;
+}
+.span-text.selected {
+    padding-right: 8px;
 }
 .list-items-wrapper{
     display: flex;
@@ -469,25 +474,25 @@ input[type="checkbox"] {
     .below-nav-items {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: center;
-        position: fixed;
+        position: absolute;
         left: -100%;
-        top: 70px;
+        top: 60px;
         background-color: #FFFFFF;
         height: 100vh;
         width: 100%;
         text-align: center;
         transition: 0.3s;
     }
+    .below-nav-items.active {
+        left: 0;
+    }
     .leftside ul li {
         margin: 10px 0;
     }
     .rightside ul li {
         margin: 10px 0;
-    }
-    .below-nav-items.active {
-        left: 0;
     }
     .leftside ul, .rightside ul {
         display: flex;
@@ -505,7 +510,6 @@ input[type="checkbox"] {
     .sorting-wrapper.active {
         left: 0;
         width: 100%;
-        height: 100vh;
     }
     .sorting-wrapper input {
         padding: 0 auto;
@@ -544,7 +548,7 @@ input[type="checkbox"] {
     }
     #domains li {
         width: 100%;
-        padding: 0;
+        padding: 5px;
     }
     .list-wrapper ul {
         display: flex;
@@ -584,4 +588,40 @@ input[type="checkbox"] {
         color: #92929D;
     }
 }
+@media only screen and (max-width: 350px) {
+    .span-text.selected {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        text-align: center;
+        padding: 5px;
+        gap: 2px;
+    }
+    .span-text.selected img {
+        padding: 0;
+    }
+    .span-text {
+        padding: 0;
+    }
+    .list-items-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .rightside-wrapper{
+        padding: 10px 0;
+    }
+    .sorting-buttons-wrapper{
+        display: flex;
+        gap: 0;
+        justify-content: space-around;
+    }
+    .sorting-buttons-wrapper button {
+        min-width: 130px;
+    }
+    .span-text.selected {
+        margin: 0 5px;
+    }
+}
+
 
