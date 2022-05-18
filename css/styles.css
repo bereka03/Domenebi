@@ -349,13 +349,13 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 #domains li {
     display: flex;
     padding: 10px;
     width: 90%;
     margin: 0;
-    margin-top: 20px;
 }
 .domain-item {
     padding-left: 20px;
@@ -565,8 +565,7 @@ input[type="checkbox"] {
     }
     .sorting-buttons-wrapper {
         display: flex;
-        justify-content: center;
-        gap: 20px;
+        justify-content: space-evenly;
         font: normal normal normal 14px/40px TKT;
         letter-spacing: 0px;
         color: #92929D;
@@ -588,7 +587,7 @@ input[type="checkbox"] {
         color: #92929D;
     }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 450px) {
     .span-text.selected {
         display: flex;
         flex-direction: column;
