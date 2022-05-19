@@ -145,7 +145,7 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 })
-document.querySelectorAll(".nav-link").forEach(n => n.
+document.querySelectorAll(".leftside ul li").forEach(n => n.
     addEventListener('click', () => {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
@@ -204,6 +204,10 @@ function appearDomains(){
     let div4;
     let icon;
     let domain;
+    let filtered_price;
+    let filtered_currency;
+    let span2;
+    let filtered_bucket;
     for (let each of domainList){
         list = document.createElement('li');
         list.setAttribute("class", "filtered-list-item");
@@ -233,25 +237,39 @@ function appearDomains(){
         div4 = document.createElement('div');
         div4.setAttribute('class', 'prices-wrapper');
         div3.append(div4);
+        filtered_price = document.createElement("p");
+        filtered_price.innerHTML = `${each.price}`;
+        document.querySelector(`#filtered-${each.domainName} .rightside-wrapper .prices-wrapper`).append(filtered_price);
+        filtered_currency = document.createElement("span");
+        filtered_currency.innerHTML = "₾";
+        filtered_price.append(filtered_currency);
+        span2 = document.createElement("span");
+        span2.setAttribute("class", "span-text");
+        document.querySelector(`#filtered-${each.domainName} .rightside-wrapper`).append(span2);
+        filtered_bucket = document.createElement("img");
+        filtered_bucket.setAttribute("src", "./img/green_bucket.svg");
+        filtered_bucket.setAttribute("alt", "green bucket");
+        filtered_bucket.setAttribute("class", "green_bucket");
+        filtered_bucket.style.backgroundColor = "#99CC66"
+        document.querySelector(`#filtered-${each.domainName} .rightside-wrapper .span-text`).append(filtered_bucket);
     }
 }
 appearDomains();
 let click_count = 1;
 let filtered_list = document.querySelectorAll(".filtered-list-item");
+let not_found = document.createElement('img');
 let filterDomains = function(){
     for (let each of checkbox_arr){
-            each.addEventListener('click', () => {
-                for (let n of filtered_list){
-                    if (each.id === n.getAttribute('category1')
-                        || each.id === n.getAttribute('category2') ){
-                            n.classList.toggle('active')
-                        
-                    }       
+        each.addEventListener('click', () => {
+            for (let n of filtered_list){
+                if (each.id === n.getAttribute('category1')
+                     || each.id === n.getAttribute('category2')){
+                         n.classList.toggle('active');
                 }
-           })
-        }
+            }
+        })
     }
-
+}
 
 filterDomains();
 // დომენების რაოდენობა საიტზე

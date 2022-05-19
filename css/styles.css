@@ -46,6 +46,7 @@ header {
 }
 .nav-link {
     margin-left: 20px;
+    padding: 5px;
 }
 header a:hover {
     transition: 0.7s ease;
@@ -360,10 +361,6 @@ input[type="checkbox"] {
 .domain-item {
     padding-left: 20px;
 }
-#domains li p, #domains li img {
-    color: #171D25;
-    font: normal normal bold 16px/22px TKT;
-}
 #domains li p {
     margin-left: 10px;
 }
@@ -446,7 +443,10 @@ input[type="checkbox"] {
     color: #171D25;
     font: normal normal bold 16px/22px TKT;
 }
-
+.prices-wrapper p {
+    color: #171D25;
+    font: normal normal bold 16px/22px TKT
+}
 /* *************** responsive *************** */
 @media only screen and (max-width: 1100px) {
     .container {
